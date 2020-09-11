@@ -1,8 +1,13 @@
 <h2>My Heroes</h2>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes">
+<ul *ngIf="heroes" class="heroes">
+  <li [contextMenu] = "basicMenu" [contextMenuSubject]="hero" *ngFor="let hero of heroes">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>
   </li>
 </ul>
+<context-menu>
+  <ng-template contextMenuItem (excute) = "addHero('영웅을 추가합니다')">영웅 추가</ng-template>
+  <ng-template contextMenuItem divider="true"></ng-template>
+  <ng-template contextMenuItem (excute) = "deleteHero('영웅을 삭제합니다.')">영웅 삭제</ng-template>
+</context-menu>
