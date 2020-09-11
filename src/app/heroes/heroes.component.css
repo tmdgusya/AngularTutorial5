@@ -49,3 +49,9 @@
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+.ngx-contextmenu li {
+  display: block;
+  border-top: solid 1px chartreuse;
+  text-transform: uppercase;
+  text-align: center;
+}
