@@ -26,4 +26,5 @@ ngx-contextmenu Module Description
 </pre>
 
 # 오류 고친 목록
+
 * 09/11 Event 함수로 누를때마다 context-menu 를 작업시켜 list가 완벽하게 로드되고 사용될수 있도록 함.
