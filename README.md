@@ -86,6 +86,8 @@ ngx-contextmenu Module Description
 # 오류 고친 목록
 
 * 09/11 Event 함수로 누를때마다 context-menu 를 작업시켜 list가 완벽하게 로드되고 사용될수 있도록 함.
+* 09/12 [disabled] 버그 수정완료
+* 09/13 CSS 파일 추가 및 SubMenu 구현
 
 # 개선할점
 
