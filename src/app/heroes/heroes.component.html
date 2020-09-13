@@ -1,18 +1,21 @@
 <h2>My Heroes</h2>
 <ul *ngIf="heroes" class="heroes">
-  <li *ngFor="let hero of heroes" [contextMenu]="basicMenu" [contextMenuSubject]="item">
+  <li *ngFor="let hero of heroes" (contextmenu)="onContextMenu($event, item)">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero?.id}}</span> {{hero?.name}}
     </a>
   </li>
 </ul>
-<context-menu>
-  <ng-template [subMenu] = "adding" contextMenuItem (excute) = "addHero('영웅을 추가합니다')">영웅 추가</ng-template>
-  <context-menu #adding>
-    <ng-template contextMenuItem>서브메뉴 1</ng-template>
-    <ng-template contextMenuItem>서브메뉴 2</ng-template>
-    <ng-template contextMenuItem>서브메뉴 3</ng-template>
+<div class = "ngx-contextmenu">
+  <context-menu #adding class = "dropdown-menu">
+    <ng-template  contextMenuItem  (excute) = "addHero('영웅을 추가합니다')">영웅 추가</ng-template>
+    <context-menu >
+      <ng-template [subMenu]="adding" contextMenuItem>영웅 관리</ng-template>
+      <ng-template contextMenuItem>서브메뉴 2</ng-template>
+      <ng-template contextMenuItem>서브메뉴 3</ng-template>
+    </context-menu>
+    <ng-template contextMenuItem (excute) = "deleteHero('영웅을 삭제합니다.')">영웅 삭제</ng-template>
   </context-menu>
-  <ng-template contextMenuItem divider="true"></ng-template>
-  <ng-template contextMenuItem (excute) = "deleteHero('영웅을 삭제합니다.')">영웅 삭제</ng-template>
-</context-menu>
+</div>
+
+
