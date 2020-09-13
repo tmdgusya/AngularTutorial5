@@ -58,6 +58,7 @@ ngx-contextmenu Module Description
 # CSS
 
 /*context-menu css*/
+<pre>
 .ngx-contextmenu .dropdown-menu {
   border: solid 1px blue; /*테두리 색*/
   background-color: white; /*배경 색*/
@@ -81,7 +82,7 @@ ngx-contextmenu Module Description
   color:rgb; 
   background-color:rgb(221,221,221);
 }
-
+</pre>
 # 오류 고친 목록
 
 * 09/11 Event 함수로 누를때마다 context-menu 를 작업시켜 list가 완벽하게 로드되고 사용될수 있도록 함.
