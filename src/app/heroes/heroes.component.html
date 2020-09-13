@@ -6,16 +6,16 @@
     </a>
   </li>
 </ul>
-<div class = "ngx-contextmenu">
-  <context-menu #adding class = "dropdown-menu">
-    <ng-template  contextMenuItem  (excute) = "addHero('영웅을 추가합니다')">영웅 추가</ng-template>
-    <context-menu >
-      <ng-template [subMenu]="adding" contextMenuItem>영웅 관리</ng-template>
-      <ng-template contextMenuItem>서브메뉴 2</ng-template>
-      <ng-template contextMenuItem>서브메뉴 3</ng-template>
+<div>
+  <context-menu #basicMenu [disabled]="disableBasicMenu" >
+    <ng-template  contextMenuItem [subMenu]="adding" (excute) = "addHero('영웅관리 메뉴를 클릭합니다')">영웅 관리</ng-template>
+    <context-menu #adding>
+      <ng-template contextMenuItem>영웅 추가</ng-template>
+      <ng-template contextMenuItem>영웅 수정</ng-template>
+      <ng-template contextMenuItem>영웅 삭제</ng-template>
     </context-menu>
-    <ng-template contextMenuItem (excute) = "deleteHero('영웅을 삭제합니다.')">영웅 삭제</ng-template>
-  </context-menu>
+    <ng-template contextMenuItem (excute) = "deleteHero('영웅 정보를 클릭합니다.')">영웅 정보</ng-template>
+  </context-menu>  
 </div>
 
 

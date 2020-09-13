@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Input, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ContextMenuComponent, ContextMenuService } from 'ngx-contextmenu'
 
@@ -6,6 +6,7 @@ import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
@@ -30,7 +31,6 @@ export class HeroesComponent implements OnInit, AfterViewInit {
       contextMenu: this.contextMenu,
       event: $event,
       item: item
-
     });
     $event.preventDefault();
     $event.stopPropagation();
