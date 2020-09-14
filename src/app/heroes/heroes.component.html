@@ -6,10 +6,8 @@
     </a>
   </li>
 </ul>
-<ng-container *ngFor="let menu of treeMenu">
   <context-menu #basicMenu >
-    <ng-template contextMenuItem [disabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
+    <ng-template *ngFor="let menu of treeMenu" contextMenuItem [disabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
   </context-menu>  
-</ng-container>
 
 
