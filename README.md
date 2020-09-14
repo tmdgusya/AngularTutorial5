@@ -113,3 +113,4 @@ ngx-contextmenu library Description
 * -후에 context-menu를 따로 ng generate component contextmenu 로 해서 옮겨 보는 작업해보면 좋을듯-
 * 아직 기본지식이 부족해서 옮기는 과정은 js나 html을 조금 더 사용해봐야할듯 함
 * enable = false 일시 배경화면을 회색으로 하거나 사용자가 편히 볼 수 있도록 하는 것을 추가하면 좋을거 같음
+* context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.
