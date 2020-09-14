@@ -43,7 +43,7 @@ export class ContextmenuComponent implements OnInit, AfterViewInit {
 export interface IMenuData {
   title: string;
   disable?: boolean;
-  // menu?: IMenuData[];
+  menu?: IMenuData[];
   command?: string;
   iconSrc?: string;
   action?: (nodeId: string) => void;

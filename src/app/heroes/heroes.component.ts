@@ -47,20 +47,5 @@ export class HeroesComponent implements OnInit, AfterViewInit {
                () => console.log('complete')
                );
   }
-  addhero(event: any):void {
-    console.log(event)
-  }
-
-  deletehero(event: any): void{
-    console.log(event)
-  }
-
-  updatehero(event: any): void{
-    console.log(event)
-  }
-
-  infohero(event: any): void{
-    console.log(event)
-  }
 
 }

@@ -25,11 +25,11 @@ export class HeroService {
     return of(HEROES.find(hero => hero.id === id));
   }
 
-  makeContext(){
+  makeContext(){ // 메뉴 생성하는 곳
     const menu: IMenuData[] = [
-      {title: "abc", disable: false, action: () => {"hello"}},
-      {title: "cde", disable: false, action: () => {"hello"}},
-      {title: "efg", disable: false, action: () => {"hello"}}
+      {title: "영웅 추가", disable: true, action: () => {console.log("영웅 추가")}},
+      {title: "영웅 수정", disable: false, action: () => {console.log("영웅 수장")}},
+      {title: "영웅 삭제", disable: true, action: () => {console.log("영웅 삭제")}}
     ]
     return menu;
   }

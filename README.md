@@ -1,13 +1,20 @@
-ngx-contextmenu Module Description
+ngx-contextmenu library Description
 ====================================
 # Ref Document
 
 <https://github.com/isaacplmann/ngx-contextmenu>
 
-# install
+# install 
+
 <pre>
-    sudo npm install --save ngx-contextmenu
-    sudo npm intsall --save @angular/cdk
+    npm install --save typescript
+    npm install --save typescript@next
+    npm install --save @angular/cli
+    npm install --save @angular/core
+    npm install --save tslib
+    npm install --save ngx-contextmenu
+    npm install --save @angular-devkit/build-angular
+    npm install --save angular2-contextmenu
 </pre>
 
 # import AppModule
@@ -26,6 +33,7 @@ ngx-contextmenu Module Description
 </pre>
 
 # subMenu
+* *후에 component 라이브러리 어댑터에서 for문을 통해서도 구현 가능하도록 해야함*
 * basicMenu 는 ts 에서 정의한 context의 basicMenu 를 뜻함 다른 메뉴를 또만들고싶으면 otherMenu 객체 생성후 똑같이 하면됨
 
 * [subMenu] = "Sub Menu name" 으로 설정한뒤 Submenu 의 context menu 묶음에 #Sub Menu name 으로 선언하여 해당 템플릿의 서브메뉴임을 알려준다.
@@ -83,13 +91,25 @@ ngx-contextmenu Module Description
   background-color:rgb(221,221,221);
 }
 </pre>
+
+# contextMenu Property
+
+* visible = true : false 값에 따라 보이고 안보이고를 정하는 속성
+* enabled = true : false 기능이 작동하도록 / 안하도록 설정
+
+<pre>
+  contextMenuItem [visible]="true" [enabled] = "menu.disable"
+</pre>
+
 # 오류 고친 목록
 
 * 09/11 Event 함수로 누를때마다 context-menu 를 작업시켜 list가 완벽하게 로드되고 사용될수 있도록 함.
 * 09/12 [disabled] 버그 수정완료
 * 09/13 CSS 파일 추가 및 SubMenu 구현
+* 09/14 Contextmenu 컴포넌트를 통하여 IMenuData 클래스 형식에 맞춰 값을 넣은 뒤 대입하면 작동함
 
 # 개선할점
 
-* 후에 context-menu를 따로 ng generate component contextmenu 로 해서 옮겨 보는 작업해보면 좋을듯
+* -후에 context-menu를 따로 ng generate component contextmenu 로 해서 옮겨 보는 작업해보면 좋을듯-
 * 아직 기본지식이 부족해서 옮기는 과정은 js나 html을 조금 더 사용해봐야할듯 함
+* enable = false 일시 배경화면을 회색으로 하거나 사용자가 편히 볼 수 있도록 하는 것을 추가하면 좋을거 같음
