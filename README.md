@@ -94,8 +94,12 @@ ngx-contextmenu library Description
 
 # contextMenu Property
 
+* title = menu의 이름을 나타낸다
+* menu = IMenuData 클래스를 넣어주며 submenu로서 작동할 수 있도록 한다 *(아마 depth 가 2 여서 submenu title 정도로 따로 구현해 보는것이 좋을듯?)* 
 * visible = true : false 값에 따라 보이고 안보이고를 정하는 속성
 * enabled = true : false 기능이 작동하도록 / 안하도록 설정
+* action = 해당 메뉴 클릭시 작동할 함수 설정
+* icornSrc = 해당 icon을 지정할 path를 값으로 주어야함 *(해당 기능은 ngx-contextmenu 에서 확인하지 못한 사항)*
 
 <pre>
   contextMenuItem [visible]="true" [enabled] = "menu.disable"
@@ -114,3 +118,4 @@ ngx-contextmenu library Description
 * 아직 기본지식이 부족해서 옮기는 과정은 js나 html을 조금 더 사용해봐야할듯 함
 * enable = false 일시 배경화면을 회색으로 하거나 사용자가 편히 볼 수 있도록 하는 것을 추가하면 좋을거 같음
 * context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.
+* 대부분의 메뉴가 depth 가 2정도 이므로 submenu를 간단하게라도 구현할 방법을 찾아볼 것.
