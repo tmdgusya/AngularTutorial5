@@ -1,1 +1,10 @@
-<p>contextmenu works!</p>
+<ul [contextMenu]="basicMenu">
+    <li>123</li>
+    <li>123</li>
+    <li>123</li>
+</ul>
+<ng-container *ngFor="let menu of treeMenu" (contextmenu)="onContextMenu($event, menu)">
+  <context-menu #basicMenu >
+    <ng-template contextMenuItem [disabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
+  </context-menu>  
+</ng-container>

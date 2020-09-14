@@ -4,6 +4,7 @@ import { ContextMenuComponent, ContextMenuService } from 'ngx-contextmenu'
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { ContextmenuComponent, IMenuData } from '../contextmenu/contextmenu.component'
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -13,8 +14,11 @@ import { HeroService } from '../hero.service';
 })
 export class HeroesComponent implements OnInit, AfterViewInit {
   heroes: Hero[];
-
+  subMenutitle : string;
+  disable_option : boolean = false;
+  treeMenu : IMenuData[] = this.heroService.makeContext(); // 넣은값을 저장하는거
   @ViewChild('basicMenu') contextMenu: ContextMenuComponent;
+  @ViewChild('contextMenu') contextMenu1: ContextmenuComponent;
   // @Input() contextMenu: ContextMenuComponent
 
   constructor(private heroService: HeroService, private contextMenuService: ContextMenuService) {}
@@ -24,7 +28,6 @@ export class HeroesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
-    
   }
   public onContextMenu($event: MouseEvent, item: any): void {
     this.contextMenuService.show.next({
@@ -44,7 +47,6 @@ export class HeroesComponent implements OnInit, AfterViewInit {
                () => console.log('complete')
                );
   }
-
   addhero(event: any):void {
     console.log(event)
   }
@@ -60,4 +62,5 @@ export class HeroesComponent implements OnInit, AfterViewInit {
   infohero(event: any): void{
     console.log(event)
   }
+
 }

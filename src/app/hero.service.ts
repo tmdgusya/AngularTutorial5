@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
+import { ContextmenuComponent, IMenuData } from './contextmenu/contextmenu.component'
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+    private messageService: MessageService 
+    ) { }
 
   getHeroes(): Observable<Hero[]> {
     // TODO: 이 메시지는 서버에서 히어로 정보를 가져온 _후에_ 보내야 합니다.
@@ -21,4 +24,14 @@ export class HeroService {
     this.messageService.add(`HeroService: fetched hero id=${id}`); // id 기반으로 찾아주는 함수
     return of(HEROES.find(hero => hero.id === id));
   }
+
+  makeContext(){
+    const menu: IMenuData[] = [
+      {title: "abc", disable: false, action: () => {"hello"}},
+      {title: "cde", disable: false, action: () => {"hello"}},
+      {title: "efg", disable: false, action: () => {"hello"}}
+    ]
+    return menu;
+  }
+  
 }
