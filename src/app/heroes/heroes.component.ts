@@ -49,7 +49,15 @@ export class HeroesComponent implements OnInit, AfterViewInit {
     console.log(event)
   }
 
-  deletehero(even: any): void{
+  deletehero(event: any): void{
+    console.log(event)
+  }
+
+  updatehero(event: any): void{
+    console.log(event)
+  }
+
+  infohero(event: any): void{
     console.log(event)
   }
 }

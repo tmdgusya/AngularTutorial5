@@ -8,13 +8,13 @@
 </ul>
 <div>
   <context-menu #basicMenu [disabled]="disableBasicMenu" >
-    <ng-template  contextMenuItem [subMenu]="adding" (excute) = "addHero('영웅관리 메뉴를 클릭합니다')">영웅 관리</ng-template>
+    <ng-template  contextMenuItem [subMenu]="adding">영웅 관리</ng-template>
     <context-menu #adding>
-      <ng-template contextMenuItem>영웅 추가</ng-template>
-      <ng-template contextMenuItem>영웅 수정</ng-template>
-      <ng-template contextMenuItem>영웅 삭제</ng-template>
+      <ng-template contextMenuItem  (execute) = "addhero('영웅관리 추가를 클릭합니다')">영웅 추가</ng-template>
+      <ng-template contextMenuItem  (execute) = "updatehero('영웅관리 수정를 클릭합니다')">영웅 수정</ng-template>
+      <ng-template contextMenuItem  (execute) = "deletehero('영웅관리 삭제를 클릭합니다')">영웅 삭제</ng-template>
     </context-menu>
-    <ng-template contextMenuItem (excute) = "deleteHero('영웅 정보를 클릭합니다.')">영웅 정보</ng-template>
+    <ng-template contextMenuItem (execute) = "infohero('영웅 정보를 클릭합니다.')">영웅 정보</ng-template>
   </context-menu>  
 </div>
 
