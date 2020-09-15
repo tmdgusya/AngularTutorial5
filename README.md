@@ -34,6 +34,17 @@ ngx-contextmenu library Description
 </code></pre>
 
 # Menu Class 
+<pre><code>
+  export interface IMenuData {
+  title: string;
+  disable?: boolean;
+  menu?: IMenuData[];
+  command?: string;
+  iconSrc?: string;
+  action?: (nodeId: string) => void;
+}
+</code></pre>
+
 # subMenu
 * *후에 component 라이브러리 어댑터에서 for문을 통해서도 구현 가능하도록 해야함*
 * basicMenu 는 ts 에서 정의한 context의 basicMenu 를 뜻함 다른 메뉴를 또만들고싶으면 otherMenu 객체 생성후 똑같이 하면됨
@@ -94,6 +105,10 @@ ngx-contextmenu library Description
 <pre>
   contextMenuItem [visible]="true" [enabled] = "menu.disable"
 </pre>
+# 미구현 메뉴
+
+* iconsrc -> 해당 관련 찾아보거나 안되면 적용시키는법 구현해야 할듯함.
+* command -> 쓰이지 않아 미구현
 
 # 오류 고친 목록
 
