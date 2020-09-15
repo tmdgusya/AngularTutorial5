@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Input, ViewEncapsulation, AfterViewChecked } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ContextMenuComponent ,ContextMenuService } from 'ngx-contextmenu'
 
@@ -12,25 +12,29 @@ import { ContextmenuComponent, IMenuData } from '../contextmenu/contextmenu.comp
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.css']
 })
-export class HeroesComponent implements OnInit, AfterViewInit {
+export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked {
   heroes: Hero[];
-  treeMenu : IMenuData[] = this.heroService.makeContext(); // 넣은값을 저장하는거
+  treeMenu : IMenuData[];
   @ViewChild(ContextmenuComponent) rightclick: ContextmenuComponent;
-  @ViewChild('basicMenu') context : ContextMenuComponent
   // @Input() contextMenu: ContextMenuComponent
-
+  
   constructor(private heroService: HeroService, private contextMenuService: ContextMenuService) {}
 
   ngOnInit() {
     this.getHeroes();
+    this.treeMenu = this.heroService.makeContext();
   }
 
-  ngAfterViewInit(){
-    this.context = this.rightclick.contextMenu
+  ngAfterViewInit(){ 
+    
+  }
+
+  ngAfterViewChecked(){
+    
   }
   public onContextMenu($event: MouseEvent, item: any): void {
     this.contextMenuService.show.next({
-      contextMenu: this.context,
+      contextMenu: this.rightclick.contextMenu,
       event: $event,
       item: item
     });

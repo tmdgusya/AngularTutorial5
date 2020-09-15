@@ -10,9 +10,9 @@ import { HeroService } from '../hero.service'
 })
 export class ContextmenuComponent implements OnInit, AfterViewInit {
   @ViewChild('basicMenu') contextMenu: ContextMenuComponent;
-  treeMenu : IMenuData[] = this.heroService.makeContext(); // 넣은값을 저장하는 부분
+  @Input('menus') treeMenu : IMenuData[]; // 해당 Component로 부터 값을 받아오는 부분
 
-  constructor(private heroService: HeroService) { }
+  constructor() { }
   
   ngOnInit(): void {
   }
@@ -20,7 +20,9 @@ export class ContextmenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){ 
   }
 
-  
+  setTreeMenu(list : IMenuData[]){
+    this.treeMenu = list;
+  }
 }
 export interface IMenuData {
   title: string;

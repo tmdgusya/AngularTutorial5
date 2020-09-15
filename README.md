@@ -104,18 +104,35 @@ ngx-contextmenu library Description
 <pre>
   contextMenuItem [visible]="true" [enabled] = "menu.disable"
 </pre>
+# Component class 에 input 값에 전달해주는 것
 
+* @Input('menus') treeMenu : IMenuData[]; // 해당 Component로 부터 값을 받아오는 부분
+
+## html 에서 전달해주는 부분
+
+* <wins-contextmenu [menus] = "treeMenu"></wins-contextmenu>
+* 해당 컴포넌트 클래스에서 treeMenu
+<pre>
+  treeMenu : IMenuData[];
+
+  // oninit 에서 해당 클래스의 service 로부터 받아온 값을 대입함
+    ngOnInit() {
+    this.getHeroes();
+    this.treeMenu = this.heroService.makeContext();
+  }
+</pre>
 # 오류 고친 목록
 
 * 09/11 Event 함수로 누를때마다 context-menu 를 작업시켜 list가 완벽하게 로드되고 사용될수 있도록 함.
 * 09/12 [disabled] 버그 수정완료
 * 09/13 CSS 파일 추가 및 SubMenu 구현
 * 09/14 Contextmenu 컴포넌트를 통하여 IMenuData 클래스 형식에 맞춰 값을 넣은 뒤 대입하면 작동함
+* 09/15 ContextmenuComponent 에서 메뉴를 띄우도록 하고 다른 컴포넌트에서는 selector만 불러온뒤 작동
 
 # 개선할점
 
 * -후에 context-menu를 따로 ng generate component contextmenu 로 해서 옮겨 보는 작업해보면 좋을듯-
 * 아직 기본지식이 부족해서 옮기는 과정은 js나 html을 조금 더 사용해봐야할듯 함
 * enable = false 일시 배경화면을 회색으로 하거나 사용자가 편히 볼 수 있도록 하는 것을 추가하면 좋을거 같음
-* context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.
+* -context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.-
 * 대부분의 메뉴가 depth 가 2정도 이므로 submenu를 간단하게라도 구현할 방법을 찾아볼 것.
