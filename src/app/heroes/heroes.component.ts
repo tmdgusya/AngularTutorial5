@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit, Input, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ContextMenuComponent, ContextMenuService } from 'ngx-contextmenu'
+import { ContextMenuComponent ,ContextMenuService } from 'ngx-contextmenu'
 
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
@@ -14,11 +14,9 @@ import { ContextmenuComponent, IMenuData } from '../contextmenu/contextmenu.comp
 })
 export class HeroesComponent implements OnInit, AfterViewInit {
   heroes: Hero[];
-  subMenutitle : string;
-  disable_option : boolean = false;
   treeMenu : IMenuData[] = this.heroService.makeContext(); // 넣은값을 저장하는거
-  @ViewChild('basicMenu') contextMenu: ContextMenuComponent;
-  @ViewChild('contextMenu') contextMenu1: ContextmenuComponent;
+  @ViewChild(ContextmenuComponent) rightclick: ContextmenuComponent;
+  @ViewChild('basicMenu') context : ContextMenuComponent
   // @Input() contextMenu: ContextMenuComponent
 
   constructor(private heroService: HeroService, private contextMenuService: ContextMenuService) {}
@@ -28,10 +26,11 @@ export class HeroesComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(){
+    this.context = this.rightclick.contextMenu
   }
   public onContextMenu($event: MouseEvent, item: any): void {
     this.contextMenuService.show.next({
-      contextMenu: this.contextMenu,
+      contextMenu: this.context,
       event: $event,
       item: item
     });

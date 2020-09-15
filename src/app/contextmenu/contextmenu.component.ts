@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, ViewChild, ViewEncapsulation, AfterViewInit } from '@angular/core';
-import { ContextMenuModule, ContextMenuComponent, ContextMenuService} from 'ngx-contextmenu'; 
+import { Component, OnInit, Input, ViewChild, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import { ContextMenuComponent} from 'ngx-contextmenu'; 
+import { HeroService } from '../hero.service'
 
 @Component({
   selector: 'wins-contextmenu',
@@ -8,20 +9,10 @@ import { ContextMenuModule, ContextMenuComponent, ContextMenuService} from 'ngx-
   encapsulation: ViewEncapsulation.None
 })
 export class ContextmenuComponent implements OnInit, AfterViewInit {
-  @Input() treeMenu: IMenuData[]; // menu 객체 하나
   @ViewChild('basicMenu') contextMenu: ContextMenuComponent;
-  
-  // context menu 변수
-  title : string;
-  disable? : boolean;
-  menu?: IMenuData[];
-  command?: string;
-  iconSrc?: string;
-  action?: (nodeId: string) => void;
-  // end
-  private imenuData: IMenuData;
+  treeMenu : IMenuData[] = this.heroService.makeContext(); // 넣은값을 저장하는 부분
 
-  constructor(private contextMenuService: ContextMenuService) { }
+  constructor(private heroService: HeroService) { }
   
   ngOnInit(): void {
   }
@@ -29,15 +20,6 @@ export class ContextmenuComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(){ 
   }
 
-  public onContextMenu($event: MouseEvent, item?: any): void {
-    this.contextMenuService.show.next({
-      contextMenu: this.contextMenu,
-      event: $event,
-      item: item
-    });
-    $event.preventDefault();
-    $event.stopPropagation();
-  }
   
 }
 export interface IMenuData {

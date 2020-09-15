@@ -1,27 +1,4 @@
 /*context-menu css*/
-.ngx-contextmenu .dropdown-menu {
-  border: solid 1px blue; /*테두리 색*/
-  background-color: white; /*배경 색*/
-  padding: 0;
-}
-.ngx-contextmenu li {
-  display: block;
-  border-top: solid 1px blue; /*구분선 색*/
-  text-transform: uppercase;
-  text-align: center;
-}
-.ngx-contextmenu li:first-child {
-  border-top:none;
-}
-.ngx-contextmenu a {
-  color: black; /*글자색*/
-  display: block;
-  padding: 0.5em 1em;
-}
-.ngx-contextmenu a:hover { /*마우스가 올라갔을때*/
-  color:rgb; 
-  background-color:rgb(221,221,221);
-}
 /* HeroesComponent에 적용되는 CSS 스타일 */
 .heroes {
   margin: 0 0 2em 0;

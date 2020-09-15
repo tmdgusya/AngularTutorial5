@@ -1,21 +1,11 @@
 <h2>My Heroes</h2>
 <ul *ngIf="heroes" class="heroes">
-  <li *ngFor="let hero of heroes" (contextmenu)="onContextMenu($event, menu)">
+  <li *ngFor="let hero of heroes" (contextmenu)="onContextMenu($event, item)">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero?.id}}</span> {{hero?.name}}
     </a>
   </li>
 </ul>
-<context-menu #basicMenu >
-  <ng-container *ngFor="let menu of treeMenu">
-    <ng-container *ngIf="menu.menu">
-      <ng-template contextMenuItem [subMenu] = "menu.title" #sub [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
-        <context-menu #sub>
-          <ng-template *ngFor="let submenu of menu.menu" contextMenuItem [visible]="true" [enabled] = "submenu.disable" (execute) = "submenu.action()">{{submenu.title}}</ng-template>
-        </context-menu>
-    </ng-container> 
-      <ng-template *ngIf = "menu.menu == null" contextMenuItem [subMenu] = "menu.title" #sub [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
-  </ng-container>
-</context-menu>  
+<wins-contextmenu></wins-contextmenu>
 
 <!--  -->
