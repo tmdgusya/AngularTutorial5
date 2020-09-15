@@ -6,8 +6,16 @@
     </a>
   </li>
 </ul>
-  <context-menu #basicMenu >
-    <ng-template *ngFor="let menu of treeMenu" contextMenuItem [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
-  </context-menu>  
+<context-menu #basicMenu >
+  <ng-container *ngFor="let menu of treeMenu">
+    <ng-container *ngIf="menu.menu">
+      <ng-template contextMenuItem [subMenu] = "menu.title" #sub [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
+        <context-menu #sub>
+          <ng-template *ngFor="let submenu of menu.menu" contextMenuItem [visible]="true" [enabled] = "submenu.disable" (execute) = "submenu.action()">{{submenu.title}}</ng-template>
+        </context-menu>
+    </ng-container> 
+      <ng-template *ngIf = "menu.menu == null" contextMenuItem [subMenu] = "menu.title" #sub [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
+  </ng-container>
+</context-menu>  
 
-
+<!--  -->
