@@ -27,8 +27,11 @@ export class HeroService {
 
   makeContext(){ // 메뉴 생성하는 곳
     const menu: IMenuData[] = [
-      {title: "영웅 추가", disable: true, action: () => {console.log("영웅 추가")}, menu: [{title: "submenu", disable: true}]},
-      {title: "영웅 수정", disable: false, action: () => {console.log("영웅 수장")},  menu: [{title: "submenu", disable: true}]},
+      {title: "영웅 관리", disable: true, action: () => {console.log("영웅 관리")}, 
+              menu: [{title: "영웅 추가", disable: true, action: () => {console.log("영웅 추가")}},
+                      {title:"영웅 수정", disable: true, action: () => {console.log("영웅 수정")}}]},
+      {title: "영웅 보기", disable: false, action: () => {console.log("영웅 보기")}},
+
       {title: "영웅 삭제", disable: true, action: () => {console.log("영웅 삭제")}}
     ]
     return menu;

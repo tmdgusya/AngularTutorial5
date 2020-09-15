@@ -136,3 +136,4 @@ ngx-contextmenu library Description
 * enable = false 일시 배경화면을 회색으로 하거나 사용자가 편히 볼 수 있도록 하는 것을 추가하면 좋을거 같음
 * -context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.-
 * 대부분의 메뉴가 depth 가 2정도 이므로 submenu를 간단하게라도 구현할 방법을 찾아볼 것.
+
