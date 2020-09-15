@@ -1,5 +1,6 @@
 ngx-contextmenu library Description
 ====================================
+
 # Ref Document
 
 <https://github.com/isaacplmann/ngx-contextmenu>
@@ -36,22 +37,10 @@ ngx-contextmenu library Description
 * *후에 component 라이브러리 어댑터에서 for문을 통해서도 구현 가능하도록 해야함*
 * basicMenu 는 ts 에서 정의한 context의 basicMenu 를 뜻함 다른 메뉴를 또만들고싶으면 otherMenu 객체 생성후 똑같이 하면됨
 
-* [subMenu] = "Sub Menu name" 으로 설정한뒤 Submenu 의 context menu 묶음에 #Sub Menu name 으로 선언하여 해당 템플릿의 서브메뉴임을 알려준다.
+* ~~[subMenu] = "Sub Menu name" 으로 설정한뒤 Submenu 의 context menu 묶음에 #Sub Menu name 으로 선언하여 해당 템플릿의 서브메뉴임을 알려준다.~~
+* IMenuData 내의 menu 에 : IMenuData[] 로 정의해주면 된다. 자동으로 구현됨
 
 
-<pre>
-    <div>
-        <context-menu #basicMenu [disabled]="disableBasicMenu"  >
-            <ng-template  contextMenuItem [subMenu]="adding" (excute) = "addHero('영웅을 추가합니다')">영웅 관리</ng-template>
-            <context-menu #adding>
-            <ng-template contextMenuItem>영웅 추가</ng-template>
-            <ng-template contextMenuItem>영웅 수정</ng-template>
-            <ng-template contextMenuItem>영웅 삭제</ng-template>
-            </context-menu>
-            <ng-template contextMenuItem (excute) = "deleteHero('영웅을 삭제합니다.')">영웅 삭제</ng-template>
-        </context-menu>  
-    </div>
-</pre>
 
 # Design pre
 * *아래 조건들을 반드시 ts에 적어줘야지만* css에 적은 파일들이 적용됨
@@ -104,36 +93,19 @@ ngx-contextmenu library Description
 <pre>
   contextMenuItem [visible]="true" [enabled] = "menu.disable"
 </pre>
-# Component class 에 input 값에 전달해주는 것
 
-* @Input('menus') treeMenu : IMenuData[]; // 해당 Component로 부터 값을 받아오는 부분
-
-## html 에서 전달해주는 부분
-
-* <wins-contextmenu [menus] = "treeMenu"></wins-contextmenu>
-* 해당 컴포넌트 클래스에서 treeMenu
-<pre>
-  treeMenu : IMenuData[];
-
-  // oninit 에서 해당 클래스의 service 로부터 받아온 값을 대입함
-    ngOnInit() {
-    this.getHeroes();
-    this.treeMenu = this.heroService.makeContext();
-  }
-</pre>
 # 오류 고친 목록
 
 * 09/11 Event 함수로 누를때마다 context-menu 를 작업시켜 list가 완벽하게 로드되고 사용될수 있도록 함.
 * 09/12 [disabled] 버그 수정완료
 * 09/13 CSS 파일 추가 및 SubMenu 구현
 * 09/14 Contextmenu 컴포넌트를 통하여 IMenuData 클래스 형식에 맞춰 값을 넣은 뒤 대입하면 작동함
-* 09/15 ContextmenuComponent 에서 메뉴를 띄우도록 하고 다른 컴포넌트에서는 selector만 불러온뒤 작동
+* 09/14 SubMenu 메뉴 배열 넣으면 자동 구현하도록 변환함
 
 # 개선할점
 
-* -후에 context-menu를 따로 ng generate component contextmenu 로 해서 옮겨 보는 작업해보면 좋을듯-
+* ~~후에 context-menu를 따로 ng generate component contextmenu 로 해서 옮겨 보는 작업해보면 좋을듯~~
 * 아직 기본지식이 부족해서 옮기는 과정은 js나 html을 조금 더 사용해봐야할듯 함
 * enable = false 일시 배경화면을 회색으로 하거나 사용자가 편히 볼 수 있도록 하는 것을 추가하면 좋을거 같음
-* -context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.-
+* ~~context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.~~
 * 대부분의 메뉴가 depth 가 2정도 이므로 submenu를 간단하게라도 구현할 방법을 찾아볼 것.
-
