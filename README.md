@@ -29,10 +29,11 @@ ngx-contextmenu library Description
 </pre>
 
 # template selector
-<pre>
+<pre><code>
     <ng-template contextMenuItem (excute) = "addHero('영웅을 추가합니다')">영웅 추가</ng-template>
-</pre>
+</code></pre>
 
+# Menu Class 
 # subMenu
 * *후에 component 라이브러리 어댑터에서 for문을 통해서도 구현 가능하도록 해야함*
 * basicMenu 는 ts 에서 정의한 context의 basicMenu 를 뜻함 다른 메뉴를 또만들고싶으면 otherMenu 객체 생성후 똑같이 하면됨
@@ -108,4 +109,4 @@ ngx-contextmenu library Description
 * 아직 기본지식이 부족해서 옮기는 과정은 js나 html을 조금 더 사용해봐야할듯 함
 * enable = false 일시 배경화면을 회색으로 하거나 사용자가 편히 볼 수 있도록 하는 것을 추가하면 좋을거 같음
 * ~~context-menu 의 템플릿을 쓰고도 가능하도록 구현하여야 함.~~
-* 대부분의 메뉴가 depth 가 2정도 이므로 submenu를 간단하게라도 구현할 방법을 찾아볼 것.
+* ~~대부분의 메뉴가 depth 가 2정도 이므로 submenu를 간단하게라도 구현할 방법을 찾아볼 것.~~
