@@ -1,5 +1,4 @@
-<div class="dropdown ngx-contextmenu">
-  <context-menu #basicMenu>
+<context-menu #basicMenu>
     <ng-container *ngFor="let menu of treeMenu">
         <ng-template *ngIf="menu.menu" contextMenuItem [subMenu] = "subMenu" [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
           <context-menu #subMenu>
@@ -7,5 +6,4 @@
           </context-menu> 
         <ng-template *ngIf = "menu.menu == null" contextMenuItem [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
     </ng-container>
-  </context-menu>
-</div>
+</context-menu>
