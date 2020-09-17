@@ -1,24 +1,36 @@
 /*context-menu css*/
-.ngx-contextmenu .dropdown-menu {
-    border: solid 1px blue; /*테두리 색*/
-    background-color: white; /*배경 색*/
-    padding: 0;
-  }
-  .ngx-contextmenu li {
-    display: block;
-    border-top: solid 1px blue; /*구분선 색*/
-    text-transform: uppercase;
-    text-align: center;
-  }
-  .ngx-contextmenu li:first-child {
-    border-top:none;
-  }
-  .ngx-contextmenu a {
-    color: black; /*글자색*/
-    display: block;
-    padding: 0.5em 1em;
-  }
-  .ngx-contextmenu a:hover { /*마우스가 올라갔을때*/
-    color:rgb; 
-    background-color:rgb(221,221,221);
-  }
+.dropdown-menu {
+  padding: 10px;
+  border: 2px solid #333; /*테두리 색*/
+  border-radius: 5px;
+  background-color: #fff;
+}
+.dropdown-menu>li{
+  margin: 10px 0px;
+}
+.dropdown-menu>li:first-child{
+  margin-top: 0px;
+}
+.dropdown-menu>li:last-child{
+  margin-bottom:0px;
+}
+.dropdown-menu>li>a {         
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+}
+.dropdown-menu>li.disabled>a{
+  color: #ddd;
+}
+.dropdown-menu>li>a:hover { /*마우스가 올라갔을때*/
+  background-color:#ddd;
+}
+.dropdown-menu>li.disabled>a:hover{
+  background-color:#fff;
+}
+.hasSubMenu:before{
+  display: none;
+}
+.cdk-overlay-pane{
+  transform: translate(10px, -12px);
+}

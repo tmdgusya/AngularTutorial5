@@ -1,9 +1,11 @@
-<context-menu #basicMenu>
-  <ng-container *ngFor="let menu of treeMenu">
-      <ng-template *ngIf="menu.menu" contextMenuItem [subMenu] = "subMenu" [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
-        <context-menu #subMenu>
-          <ng-template *ngFor="let submenu of menu.menu" contextMenuItem [visible]="true" [enabled] = "submenu.disable" (execute) = "submenu.action()">{{submenu.title}}</ng-template>
-        </context-menu> 
-      <ng-template *ngIf = "menu.menu == null" contextMenuItem [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
-  </ng-container>
-</context-menu>
+<div class="dropdown ngx-contextmenu">
+  <context-menu #basicMenu>
+    <ng-container *ngFor="let menu of treeMenu">
+        <ng-template *ngIf="menu.menu" contextMenuItem [subMenu] = "subMenu" [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
+          <context-menu #subMenu>
+            <ng-template *ngFor="let submenu of menu.menu" contextMenuItem [visible]="true" [enabled] = "submenu.disable" (execute) = "submenu.action()">{{submenu.title}}</ng-template>
+          </context-menu> 
+        <ng-template *ngIf = "menu.menu == null" contextMenuItem [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
+    </ng-container>
+  </context-menu>
+</div>
