@@ -1,6 +1,9 @@
 <context-menu #basicMenu>
     <ng-container *ngFor="let menu of treeMenu">
-        <ng-template *ngIf="menu.menu" contextMenuItem [subMenu] = "subMenu" [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">{{menu.title}}</ng-template>
+        <ng-template *ngIf="menu.separator" contextMenuItem [divider]="menu.separator"></ng-template>
+        <ng-template *ngIf="menu.menu" contextMenuItem [subMenu] = "subMenu" [visible]="true" [enabled] = "menu.disable" (execute) = "menu.action()">
+          <span title= "{{menu.title}}">{{menu.title}}</span>
+        </ng-template>
           <context-menu #subMenu>
             <ng-template *ngFor="let submenu of menu.menu" contextMenuItem [visible]="true" [enabled] = "submenu.disable" (execute) = "submenu.action()">{{submenu.title}}</ng-template>
           </context-menu> 

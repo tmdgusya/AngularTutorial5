@@ -26,6 +26,7 @@ export interface IMenuData {
   title: string;
   disable?: boolean;
   menu?: IMenuData[];
+  separator?: boolean;
   command?: string;
   iconSrc?: string;
   action?: (nodeId: string) => void;

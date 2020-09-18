@@ -34,6 +34,7 @@ export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked 
   }
   public onContextMenu($event: MouseEvent, item: any): void {
     this.contextMenuService.show.next({
+      // anchorElement: $event.taget,
       contextMenu: this.rightclick.contextMenu,
       event: $event,
       item: item

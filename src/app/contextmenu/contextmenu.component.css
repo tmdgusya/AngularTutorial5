@@ -1,10 +1,10 @@
 /*context-menu css*/
 .dropdown-menu {
-  padding: 10px;
-  border: 2px solid #333; /*테두리 색*/
-  border-radius: 5px;
+  padding: 10px 0px;
+  border: 1px solid #aaa; /*테두리 색*/
   background-color: #fff;
 }
+
 .dropdown-menu>li{
   margin: 10px 0px;
 }
@@ -14,16 +14,31 @@
 .dropdown-menu>li:last-child{
   margin-bottom:0px;
 }
-.dropdown-menu>li>a {         
+.dropdown-menu>li>a {      
+  width : 100%;
+  heigth : 100%;   
   display: block;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 0px 10px;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size : 12px;
+  text-overflow: ellipsis;
+  line-height: 28px;
+  color: #777; /*이 부분은 rms로 들어오게되면 서장혁주임님께서 제거해달라고했음 -> css 자체에 컬러가많은게 안좋은거같음*/
+}
+.dropdown-menu>li.divider {
+  height: 1px;
+  margin-top : 5px;
+  background-color:#aaa;
+  overflow: hidden;
 }
 .dropdown-menu>li.disabled>a{
-  color: #ddd;
+  color: #ccc;
 }
+
 .dropdown-menu>li>a:hover { /*마우스가 올라갔을때*/
-  background-color:#ddd;
+  background-color:#f4f4f4;
 }
 .dropdown-menu>li.disabled>a:hover{
   background-color:#fff;
@@ -32,5 +47,5 @@
   display: none;
 }
 .cdk-overlay-pane{
-  transform: translate(10px, -12px);
+  transform: translate(0px, calc(-10px - 1px)); /*menu 와 menu 사이의 간격을 나타냄*/
 }
