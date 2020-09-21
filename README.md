@@ -15,7 +15,6 @@ ngx-contextmenu library Description
     npm install --save tslib
     npm install --save ngx-contextmenu
     npm install --save @angular-devkit/build-angular
-    npm install --save angular2-contextmenu
 </pre>
 
 # import AppModule
