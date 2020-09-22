@@ -1,10 +1,13 @@
 <div *ngIf="hero">
   <h2>{{hero.name | uppercase}} Details</h2>
+  <div  [hello] = "hello" *ngIf="hello =='hello'" >{{hello}}</div>
   <div><span>id: </span>{{hero.id}}</div>
   <div>
     <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
+      <input type="text" [value] ="name" (input)= "setName($event)" placeholder="name"/> <!--양방향으로 바꿔주는거 [(ngModel)]="hero.name" -->
     </label>
   </div>
   <button (click)="goBack()">go back</button>
+  <button (click)="whevent(hero.name)">what event?</button>
+  <button>{{name}}</button>
 </div>

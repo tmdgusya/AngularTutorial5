@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ViewEncapsulation, AfterViewInit, ElementRef, Output} from '@angular/core';
 import { ContextMenuComponent} from 'ngx-contextmenu'; 
-import { HeroService } from '../hero.service'
+
 
 @Component({
   selector: 'wins-contextmenu',

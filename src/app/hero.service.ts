@@ -3,7 +3,7 @@ import { from, Observable, of } from 'rxjs';
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
-import { ContextmenuComponent, IMenuData } from './contextmenu/contextmenu.component'
+import { IMenuData } from './contextmenu/contextmenu.component'
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
