@@ -11,9 +11,7 @@ import { HeroService } from '../hero.service';
   styleUrls: [ './hero-detail.component.css' ]
 })
 export class HeroDetailComponent implements OnInit {
-  @Input('do') name : string;
   hero: Hero;
-  hello : string = 'hello';
   hero_name = new Array();
   error : string;
   constructor(
@@ -42,19 +40,20 @@ export class HeroDetailComponent implements OnInit {
     console.log(a);
   }
 
-  setName(event){
+  reName(){
+    const id = +this.route.snapshot.paramMap.get('id'); // +는 숫자형태로 변환
+    this.heroService.setHeroname(id, (<HTMLInputElement>document.getElementById('name')).value);
+  }
+  setName(event){ // 10개로 제한하는 함수 --> 다만 지금 10개 이상 입력은 
     if(event)
-    { 
-      if(this.hero_name.length < 10){
-        this.hero_name.push(event.data);
-        console.log(this.hero_name);
-      }
-      else{
-        this.error = "error";
-        console.log("error");
-      }
+    {   
+        var x = (<HTMLInputElement>document.getElementById('name')).value; // string
+        if(x.length > 10){
+          var s = x.substring(0,10);
+          (<HTMLInputElement>document.getElementById('name')).value = s;
+          console.log(s)
+        }
     }
-    console.log(event.data);
   }
 
   getName(){

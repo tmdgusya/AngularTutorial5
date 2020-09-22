@@ -25,6 +25,7 @@
     "angular-in-memory-web-api": "~0.11.0",
     "angular2-contextmenu": "^0.8.2",
     "ngx-contextmenu": "^5.4.0",
+    "node-sass": "^4.14.1",
     "rxjs": "~6.6.3",
     "tslib": "^1.13.0",
     "zone.js": "~0.10.3"

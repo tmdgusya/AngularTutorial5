@@ -1,6 +1,6 @@
 <h2>My Heroes</h2>
 <ul *ngIf="heroes" class="heroes">
-  <li *ngFor="let hero of heroes" (contextmenu)="onContextMenu($event, item)">
+  <li *ngFor="let hero of heroes" (contextmenu)="onContextMenu($event)">
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero?.id}}</span> {{hero?.name}}
     </a>

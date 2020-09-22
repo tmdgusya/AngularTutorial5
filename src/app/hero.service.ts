@@ -4,14 +4,18 @@ import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 import { IMenuData } from './contextmenu/contextmenu.component'
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
   constructor(
-    private messageService: MessageService 
+    private messageService: MessageService,
+    private route: ActivatedRoute
     ) { }
-
+  setHeroname(id, rename : string) {
+    HEROES.find(hero => hero.id === id).name = rename;
+  }
   getHeroes(): Observable<Hero[]> {
     // TODO: 이 메시지는 서버에서 히어로 정보를 가져온 _후에_ 보내야 합니다.
     this.messageService.add('HeroService: fetched heroes'); // heroes 배열을 추가
@@ -30,7 +34,7 @@ export class HeroService {
       {title: "영웅 관리rrrrrrrrrrrrrrrrrrrrrrrrrrr  huyuyuy n  y5y5", disable: true, action: () => {console.log("영웅 관리")}, 
               menu: [{title: "영웅 추가", disable: true, action: () => {console.log("영웅 추가")}},
                       {title:"영웅 수정", disable: true, action: () => {console.log("영웅 수정")}}]},
-      {title: "영웅 보기", disable: false, action: () => {console.log("영웅 보기")}},
+      {title: "영웅 보기", disable: false, action: () => {this.getHero(+this.route.snapshot.paramMap.get('id'))}},
 
       {title: "영웅 삭제", disable: true, separator: true, action: () => {console.log("영웅 삭제")}}
     ]

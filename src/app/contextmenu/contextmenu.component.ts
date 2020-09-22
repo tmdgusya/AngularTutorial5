@@ -5,7 +5,7 @@ import { ContextMenuComponent} from 'ngx-contextmenu';
 @Component({
   selector: 'wins-contextmenu',
   templateUrl: './contextmenu.component.html',
-  styleUrls: ['./contextmenu.component.css'],
+  styleUrls: ['./contextmenu.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class ContextmenuComponent implements OnInit, AfterViewInit {

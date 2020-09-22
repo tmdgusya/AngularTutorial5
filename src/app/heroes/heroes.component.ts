@@ -5,6 +5,7 @@ import { ContextMenuComponent ,ContextMenuService } from 'ngx-contextmenu'
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { ContextmenuComponent, IMenuData } from '../contextmenu/contextmenu.component'
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -15,10 +16,11 @@ import { ContextmenuComponent, IMenuData } from '../contextmenu/contextmenu.comp
 export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked {
   heroes: Hero[];
   treeMenu : IMenuData[];
+  id = +this.route.snapshot.paramMap.get('id')
   @ViewChild(ContextmenuComponent) rightclick: ContextmenuComponent;
   // @Input() contextMenu: ContextMenuComponent
   
-  constructor(private heroService: HeroService, private contextMenuService: ContextMenuService) {}
+  constructor(private route: ActivatedRoute,private heroService: HeroService, private contextMenuService: ContextMenuService) {}
 
   ngOnInit() {
     this.getHeroes();
@@ -32,12 +34,12 @@ export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked 
   ngAfterViewChecked(){
     
   }
-  public onContextMenu($event: MouseEvent, item: any): void {
+  public onContextMenu($event: MouseEvent): void {
     this.contextMenuService.show.next({
       // anchorElement: $event.taget,
       contextMenu: this.rightclick.contextMenu,
       event: $event,
-      item: item
+      item: this.id
     });
     $event.preventDefault();
     $event.stopPropagation();
@@ -50,6 +52,11 @@ export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked 
                error => console.error(error), 
                () => console.log('complete')
                );
+  }
+
+  get_id(){
+    this.id;
+    return this.id;
   }
 
 }
