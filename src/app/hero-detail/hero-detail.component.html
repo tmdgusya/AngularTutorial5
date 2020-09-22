@@ -4,9 +4,10 @@
   <div><span>id: </span>{{hero.id}}</div>
   <div>
     <label>name:
-      <input type="text" [value] ="name" (input)= "setName($event)" placeholder="name"/> <!--양방향으로 바꿔주는거 [(ngModel)]="hero.name" -->
+      <input type="text" [value] ="name" (input)= "setName($event)" [do]="name"/> <!--양방향으로 바꿔주는거 [(ngModel)]="hero.name" -->
     </label>
   </div>
+  <button (click)= getName()>SAVE</button>
   <button (click)="goBack()">go back</button>
   <button (click)="whevent(hero.name)">what event?</button>
   <button>{{name}}</button>

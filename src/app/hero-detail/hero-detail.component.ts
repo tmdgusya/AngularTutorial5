@@ -14,6 +14,8 @@ export class HeroDetailComponent implements OnInit {
   @Input('do') name : string;
   hero: Hero;
   hello : string = 'hello';
+  hero_name = new Array();
+  error : string;
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
@@ -41,19 +43,21 @@ export class HeroDetailComponent implements OnInit {
   }
 
   setName(event){
-    let hero_name : string = "";
-    
     if(event)
     { 
-      if(hero_name.length < 10){
-        hero_name.concat(event.data);
-        console.log(hero_name);
+      if(this.hero_name.length < 10){
+        this.hero_name.push(event.data);
+        console.log(this.hero_name);
       }
       else{
+        this.error = "error";
         console.log("error");
       }
     }
     console.log(event.data);
+  }
 
+  getName(){
+    console.log(this.hero_name);
   }
 }
