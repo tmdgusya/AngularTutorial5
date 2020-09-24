@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes.slice(1, 5),  // 4명만 띄워야 하니깐
+      .subscribe(heroes => this.heroes = heroes,  // 4명만 띄워야 하니깐
                 error => console.error(error),
                 () => console.log('completion'));
   }

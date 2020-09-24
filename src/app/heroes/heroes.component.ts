@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { ContextMenuComponent ,ContextMenuService } from 'ngx-contextmenu'
 
 import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 import { HeroService } from '../hero.service';
 import { ContextmenuComponent, IMenuData } from '../contextmenu/contextmenu.component'
 import { ActivatedRoute } from '@angular/router';
@@ -11,12 +12,13 @@ import { ActivatedRoute } from '@angular/router';
   encapsulation: ViewEncapsulation.None,
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked {
   heroes: Hero[];
   treeMenu : IMenuData[];
   id = +this.route.snapshot.paramMap.get('id')
+  list : Hero[] = HEROES;
   @ViewChild(ContextmenuComponent) rightclick: ContextmenuComponent;
   // @Input() contextMenu: ContextMenuComponent
   
@@ -28,7 +30,7 @@ export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked 
   }
 
   ngAfterViewInit(){ 
-    
+
   }
 
   ngAfterViewChecked(){
@@ -59,4 +61,12 @@ export class HeroesComponent implements OnInit, AfterViewInit, AfterViewChecked 
     return this.id;
   }
 
+  // 지금 heroes 에 붙어있는데 이걸 따로 component 로 옮겨야겠음
+  addHero(){ 
+    console.log(this.list)
+    let id = parseInt((<HTMLInputElement>document.getElementById('id')).value);
+    let name = (<HTMLInputElement>document.getElementById('name')).value;
+    HEROES.push({id, name}) 
+    console.log(id, name);
+  }
 }

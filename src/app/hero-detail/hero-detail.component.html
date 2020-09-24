@@ -6,7 +6,9 @@
       <input  id="name" type="text" [value] ="name" (input)= "setName($event)"/> <!--양방향으로 바꿔주는거 [(ngModel)]="hero.name" -->
     </label>
   </div>
-  <button (click)= reName()>SAVE</button>
+  <button (click)= reName()>영웅 이름 수정</button>
+  <br>
+  <button (click)= deleteHero()>영웅 삭제</button>")
   <br>
   <button (click)="goBack()">go back</button>
 </div>

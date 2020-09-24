@@ -8,10 +8,10 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
-import { MessagesComponent } from './messages/messages.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ContextmenuComponent } from './contextmenu/contextmenu.component';
+import { HeroManageComponent } from './hero-manage/hero-manage.component';
 
 @NgModule({
   imports: [ // 기능 모듈
@@ -27,8 +27,8 @@ import { ContextmenuComponent } from './contextmenu/contextmenu.component';
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessagesComponent,
-    ContextmenuComponent
+    ContextmenuComponent,
+    HeroManageComponent
   ],
   bootstrap: [ AppComponent ] // Entry Point 선언 즉, root component로 지정하면됨.
 })

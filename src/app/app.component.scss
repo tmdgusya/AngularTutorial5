@@ -1,0 +1,43 @@
+/* AppComponent에 적용되는 CSS 스타일 */
+h1 {
+  font-size: 1.2em;
+  text-align: center;
+  height: 200px;
+  color : white;
+  font-size: 30px;
+  background-image: url('./images/hero.jpg');
+  font-family: 'Times New Roman', Times, serif;
+}
+h2 {
+
+  font-size: 2em;
+}
+nav {
+  background-color: #039be5;
+
+  & a {
+    
+    padding: 5px 10px ;
+    text-decoration: none;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  & a:visited, a:link {
+
+    color: #334953;
+  }
+  & a:hover {
+
+    color: #039be5;
+    background-color: #cfd8dc;
+  }
+  & a.active {
+
+    color: #039be5;
+  }
+}
+
